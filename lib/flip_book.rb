@@ -5,13 +5,7 @@ class FlipBook
   end
 
   def reorganize
-    @content.each_char do |c|
-      if c == " "
-        @separated.push("")
-      else
-        @separated.last << c
-      end
-    end
+    @content.each_char { |c| c == (" ") ? @separated.push("") : @separated.last << c }
     @content = @separated.reverse!.join(" ")
   end
 end
